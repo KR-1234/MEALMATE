@@ -4,7 +4,7 @@ const cors    = require('cors')
 const mealplanRoutes = require('./routes/mealplan')
 
 const app  = express()
-const PORT = process.env.PORT || 3001
+const PORT = 8080
 
 // ── Middleware ────────────────────────────────────────────────────────────────
 app.use(cors({
