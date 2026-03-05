@@ -1,0 +1,203 @@
+.wrapper {
+  margin-top: 48px;
+  animation: fadeUp 0.5s ease both;
+}
+
+.header {
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 8px;
+}
+
+.goalsText {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* Totals bar */
+.totals {
+  display: flex;
+  align-items: center;
+  background: var(--ink);
+  border-radius: 16px;
+  padding: 24px 32px;
+  margin-bottom: 24px;
+  gap: 0;
+}
+
+.totalItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.totalDivider {
+  width: 1px;
+  height: 40px;
+  background: rgba(245, 240, 232, 0.15);
+}
+
+.totalLabel {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 232, 0.45);
+}
+
+.totalValue {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #F5F0E8;
+  line-height: 1;
+}
+
+.totalSub {
+  font-size: 11px;
+  color: rgba(245, 240, 232, 0.4);
+}
+
+/* Meal cards */
+.meals {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mealCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--warm-white);
+  border: 1px solid var(--light-border);
+  border-radius: 14px;
+  padding: 20px 24px;
+  gap: 16px;
+  animation: fadeUp 0.4s ease both;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.mealCard:hover {
+  border-color: var(--terracotta);
+  box-shadow: 0 4px 20px rgba(196, 98, 45, 0.1);
+}
+
+.mealLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.dayLabel {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+}
+
+.mealName {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.2s;
+}
+
+.mealName:hover {
+  color: var(--terracotta);
+}
+
+.servings {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.mealRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.macros {
+  display: flex;
+  gap: 20px;
+}
+
+.macro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.macroVal {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.macroLabel {
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.scoreBar {
+  width: 120px;
+  height: 3px;
+  background: var(--light-border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.scoreBarFill {
+  height: 100%;
+  background: var(--terracotta);
+  border-radius: 2px;
+  transition: width 1s ease;
+}
+
+.scoreLabel {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  .mealCard { flex-direction: column; align-items: flex-start; }
+  .mealRight { align-items: flex-start; width: 100%; }
+  .scoreBar { width: 100%; }
+  .totals { padding: 20px 16px; gap: 0; }
+  .totalValue { font-size: 20px; }
+  .mealName { white-space: normal; }
+}
