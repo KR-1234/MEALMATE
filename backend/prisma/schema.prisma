@@ -1,0 +1,53 @@
+// MealMate Database Schema
+// Run: npx prisma migrate dev --name init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// A recipe scraped from Serious Eats
+model Recipe {
+  id                         Int      @id @default(autoincrement())
+  name                       String
+  url                        String   @unique
+  servings                   Int
+  caloriesPerServing         Int
+  proteinGPerServing         Float
+  carbsGPerServing           Float
+  fatGPerServing             Float
+  estimatedCostUsdPerServing Float
+  createdAt                  DateTime @default(now())
+
+  ingredients RecipeIngredient[]
+
+  @@map("recipes")
+}
+
+// Each ingredient row tied to a recipe
+model RecipeIngredient {
+  id            Int     @id @default(autoincrement())
+  recipeId      Int
+  ingredientKey String
+  ingredientRaw String
+  quantity      Float?
+  unit          String?
+
+  recipe Recipe @relation(fields: [recipeId], references: [id])
+
+  @@map("recipe_ingredients")
+}
+
+// Ingredient pricing from your scraped price data
+model IngredientPrice {
+  id            Int    @id @default(autoincrement())
+  ingredientKey String @unique
+  canonicalUnit String
+  pricePerUnit  Float
+
+  @@map("ingredient_prices")
+}
