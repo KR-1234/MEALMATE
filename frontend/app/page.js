@@ -23,7 +23,7 @@ export default function Home() {
     setPlan(null)
 
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/meal-plan`, {
+const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/meal-plan`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
